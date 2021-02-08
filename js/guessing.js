@@ -19,15 +19,17 @@ function parseInput(userInput) {
   let userNum = parseInt(userInput);
   let message = "";
   
-  if (isNaN(userNum) || typeof userNum != "number") {
-    message = `Invalid input, you gave me \"${userNum}\", give me an integer.`;
-  } else {
+  if (Number(userNum)) {
     // Call a compareNumber function
     message = "";
+  } else {
+    message = `Invalid input, you gave me \"${userNum}\", give me an integer.`;
   }
   return message;
 }
 
 // Compare number to the numAnswer
-function compareNumber(userNum) { }
+function compareNumber(userNum) {
+}
+
 
