@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <!--FONTS-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Zilla+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Zilla+Slab:wght@300&display=swap"
+        rel="stylesheet">
+    <!--STYLING-->
+    <link rel="stylesheet" type="text/css" href="./static/styles.css" />
 
     <title>Guess My Number</title>
 </head>
+
 <body>
-    <h2>My Number is...</h2>
-    <p class="guessState">
-    </p>
+    <h2 id="heading">My Number is...</h2>
+    <!--STATUS/HOW CLOSE TO ANSWER-->
 
     <!--NUMBER-INPUT-->
-    <label for="guessField">Can you guess it?</label> 
+    <label for="guessField">Can you guess it?</label>
     <input type="number" id="guessField" class="guessField">
     <input type="submit" value="Submit guess" class="guessSubmit">
+
+    <!--ATTEMPTED-GUESSES-->
+
 
     <!--JS LINK-->
     <script src="./static/js-dom/guessing.js"></script>
 </body>
+
 </html>

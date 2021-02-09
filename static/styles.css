@@ -2,7 +2,7 @@ body{
     font-family:'Roboto', san-serif;
 }
 
-.p #heading {
+#heading {
     font-family: 'Zilla Slab', serif;
-    
+    text-decoration: underline;
 }

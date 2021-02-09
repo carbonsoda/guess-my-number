@@ -1,3 +1,4 @@
+
 /**
  * - Generates Number + store it
  * - Accepts input
