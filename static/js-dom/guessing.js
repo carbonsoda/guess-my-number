@@ -1,6 +1,7 @@
-const submitBtn = document.querySelector('submitBtn');
-const guessField = document.querySelector('guessField');
-const guessResult = document.querySelector('#guessSelect');
+const submitBtn = document.querySelector('.submitBtn');
+const guessField = document.querySelector('.guessField');
+const guessResult = document.querySelector('#guessResult');
+
 
 /**
  * - Generates Number + store it
@@ -13,10 +14,17 @@ const guessResult = document.querySelector('#guessSelect');
 // Generator, random number in given range
 let numGenerate = (min = 1, max = 100) =>
   Math.floor(Math.random() * (max - min)) + min;
+// Variable for the random number
 let numAnswer = numGenerate();
 
 // keep track of previous guesses
 let wrongAnswers = [];
+
+// Reset all variables
+function resetGame() {
+  // + generate new number for numAnswer
+  numAnswer = numGenerate();
+}
 
 
 // Compare number to the numAnswer
@@ -36,17 +44,31 @@ function userWin() {
   // Display congrats message
 }
 
+
 function parseInput(userInput) {
-  // Must be a number, for now assume pure integers
   let userNum = parseInt(userInput);
   let message = "";
   
   if (Number(userNum)) {
     message = compareNumber(userNum);
   } else {
+    // form validates for Number, so this shouldn't be possible
     message = `Invalid input, you gave me \"${userNum}\", give me an integer.`;
   }
   return message;
 }
 
-submitBtn.addEventListener('click', () => parseInput(guessField.value));
+// Handle's users input
+function userGuessed(userInput) {
+  console.log(userInput);
+  if (userInput.length < 1) return;
+
+  let results = parseInput(userInput);
+  console.log(results);
+
+  guessResult.textContent = results;
+}
+
+// Only works with the arrow function and in this placement
+submitBtn.addEventListener('click', ()=> userGuessed(guessField.value));
+
