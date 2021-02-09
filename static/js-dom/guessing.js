@@ -28,8 +28,17 @@ function parseInput(userInput) {
   return message;
 }
 
+
 // Compare number to the numAnswer
 function compareNumber(userNum) {
+  if (userNum == numAnswer) {
+    // do win sequence
+    return;
+  }
 }
 
-
+function userWin() {
+  // Shouldn't allow any new inputs
+  // Display congrats message
+  // 
+}
