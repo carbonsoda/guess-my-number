@@ -1,6 +1,6 @@
-const submitBtn = document.getElementById('submitBtn');
-const guessField = document.getElementById('guessField');
-
+const submitBtn = document.querySelector('submitBtn');
+const guessField = document.querySelector('guessField');
+const guessResult = document.querySelector('#guessSelect');
 
 /**
  * - Generates Number + store it
@@ -23,14 +23,17 @@ let wrongAnswers = [];
 function compareNumber(userNum) {
   if (userNum == numAnswer) {
     // do win sequence
-    return;
+    return "";
+  } else if (userNum > numAnswer) {
+    return `lower than ${userNum}`;
+  } else {
+    return `higher than ${userNum}`;
   }
 }
 
 function userWin() {
   // Shouldn't allow any new inputs
   // Display congrats message
-  // 
 }
 
 function parseInput(userInput) {
@@ -39,8 +42,7 @@ function parseInput(userInput) {
   let message = "";
   
   if (Number(userNum)) {
-    // Call a compareNumber function
-    message = "";
+    message = compareNumber(userNum);
   } else {
     message = `Invalid input, you gave me \"${userNum}\", give me an integer.`;
   }
