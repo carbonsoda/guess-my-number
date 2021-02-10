@@ -10,10 +10,11 @@ const minRange = document.querySelector('#minField');
 const maxRange = document.querySelector('#maxField');
 const rangeBtn = document.querySelector('#rangeBtn');
 
-/** */
-// Generator, random number in given range
-let numGenerate = (min = 1, max = 100) =>
-  Math.floor(Math.random() * (max - min)) + min;
+// EVENT LISTENERS
+submitBtn.addEventListener('click', userGuessed);
+rangeBtn.addEventListener('click', setRange);
+
+
 // Variable for the random number
 let numAnswer = numGenerate();
 
@@ -21,15 +22,18 @@ let numAnswer = numGenerate();
 // + avoid duplicates
 let wrongAnswers = new Set();
 
-// EVENT LISTENERS
-submitBtn.addEventListener('click', userGuessed);
-rangeBtn.addEventListener('click', setRange);
 
+
+// Generate random number in given range
+function numGenerate(min = 1, max = 100) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
 // Reset all variables
 function resetGame() {
+  guessResult.textContent = '';
+  guessField.value = '';
 
-  guessResult.textContent = "";
   // + generate new number for numAnswer
   numAnswer = numGenerate();
 }
@@ -86,13 +90,15 @@ function parseInput(userInput) {
 
 function userWin() {
   // Shouldn't allow any new inputs
-  // Display congrats message
+  guessField.disabled = true;
+  submitBtn.disabled = true;
+
 }
 
 
 function setRange() {
-  let min = parseInput(minRange.textContent);
-  let max = parseInput(maxRange.textContent);
+  let min = parseInput(minRange.value);
+  let max = parseInput(maxRange.value);
   // For now, assume user must input both
   resetGame();
   numAnswer = numGenerate(min, max);
