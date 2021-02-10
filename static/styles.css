@@ -1,9 +1,21 @@
 body{
     font-family:'Roboto', san-serif;
-    font-size:large;
+    font-size:medium;
 }
 
 #heading {
     font-family: 'Zilla Slab', serif;
     text-decoration: underline;
+}
+
+.rangePicker{
+    width: 9em;
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: center;
+
+}
+.rangeField{
+    width: 4em;
+    margin-bottom: 1em;
 }

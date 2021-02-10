@@ -39,13 +39,17 @@
     <!--OPTIONS-->
     <div class="options">
         <!--CUSTOM RANGE-->
+        <p>
+            Pick what range of numbers I can guess from <br> (default is 1-100)
+        </p>
         <div class="rangePicker">
-            <h5>Pick what range of numbers I can guess from (default is 1-100)</h5>
-            <label for="minField">Lowest possible</label>
-            <input type="number" id="minField" class="minField">
-            <label for="maxField">Highest Possible</label>
-            <input type="number" id="maxField" class="maxField">
+            <label for="minField">Lowest</label>
+            <input type="number" id="minField" class="rangeField">
+            <label for="maxField">Highest</label>
+            <input type="number" id="maxField" class="rangeField">
         </div>
+
+        <button id="rangeBtn" class="rangeBtn">Change Range</button>
 
 
         <!--RESET-->

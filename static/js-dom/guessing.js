@@ -1,7 +1,13 @@
+// GUESS INPUT
 const submitBtn = document.querySelector('.submitBtn');
 const guessField = document.querySelector('.guessField');
+// GUESS OUTPUT
 const guessResult = document.querySelector('#guessResult');
 const guessPrev = document.querySelector('#guessPrev');
+
+// OPTIONS
+const minRange = document.querySelector('.minField');
+}
 
 // Generator, random number in given range
 let numGenerate = (min = 1, max = 100) =>
