@@ -6,9 +6,11 @@ const guessResult = document.querySelector('#guessResult');
 const guessPrev = document.querySelector('#guessPrev');
 
 // OPTIONS
-const minRange = document.querySelector('.minField');
-}
+const minRange = document.querySelector('#minField');
+const maxRange = document.querySelector('#maxField');
+const rangeBtn = document.querySelector('.rangeBtn');
 
+/** */
 // Generator, random number in given range
 let numGenerate = (min = 1, max = 100) =>
   Math.floor(Math.random() * (max - min)) + min;
@@ -18,6 +20,9 @@ let numAnswer = numGenerate();
 // keep track of previous guesses
 let wrongAnswers = [];
 
+// EVENT LISTENERS
+submitBtn.addEventListener('click', userGuessed);
+rangeBtn.addEventListener('click', setRange);
 
 
 // Reset all variables
@@ -28,6 +33,18 @@ function resetGame() {
   numAnswer = numGenerate();
 }
 
+// Handle's users input
+function userGuessed() {
+  let userInput = parseInput(guessField.value);
+  // do nothing if number not entered
+  if (!userInput) return;
+
+  // Parse the input, 
+  let results = checkNumber(userInput);
+  guessPrev.textContent = wrongAnswers.join(", ");
+
+  guessResult.textContent = results;
+}
 
 // Compare number to the numAnswer
 function checkNumber(userNum) {
@@ -48,37 +65,35 @@ function checkNumber(userNum) {
 
 }
 
+
+// Parses user's input
+function parseInput(userInput) {
+  // do nothing if number not entered
+  if (userInput.length < 1) return;
+
+  let userNum = parseInt(userInput);
+
+  if (Number(userNum)) {
+    return userNum;
+  }
+
+  // form validates for Number
+  // so this shouldn't be possible
+  console.log(`Invalid userInput: ${userInput}`);
+}
+
+
 function userWin() {
   // Shouldn't allow any new inputs
   // Display congrats message
 }
 
 
-function parseInput(userInput) {
-  let userNum = parseInt(userInput);
-  let message = "";
-
-  if (Number(userNum)) {
-    message = checkNumber(userNum);
-  } else {
-    // form validates for Number, so this shouldn't be possible
-    message = `Invalid input, you gave me \"${userNum}\", give me an integer.`;
-  }
-  return message;
+function setRange() {
+  let min = parseInput(minRange.textContent);
+  let max = parseInput(maxRange.textContent);
+  // For now, assume user must input both
+  resetGame();
+  numAnswer = numGenerate(min, max);
 }
-
-// Handle's users input
-function userGuessed(userInput) {
-  // do nothing if number not entered
-  if (userInput.length < 1) return;
-
-  // Parse the input, 
-  let results = parseInput(userInput);
-  guessPrev.textContent = wrongAnswers.join(", ");
-
-  guessResult.textContent = results;
-}
-
-// Only works with the arrow function and in this placement
-submitBtn.addEventListener('click', () => userGuessed(guessField.value));
 
