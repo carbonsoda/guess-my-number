@@ -8,6 +8,10 @@ body {
     text-decoration: underline;
 }
 
+#guessResult{
+    margin-bottom: 2em;
+}
+
 .rangePicker {
     width: 9em;
     display: grid;
@@ -26,5 +30,5 @@ body {
     background: #440154FF;
     font-size: .85em;
     padding: .65em 1em;
-    border-radius: .3em;
+    border-radius: .5em;
 }
