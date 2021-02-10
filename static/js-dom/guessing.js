@@ -1,6 +1,7 @@
 const submitBtn = document.querySelector('.submitBtn');
 const guessField = document.querySelector('.guessField');
 const guessResult = document.querySelector('#guessResult');
+const guessPrev = document.querySelector('#guessPrev');
 
 // Generator, random number in given range
 let numGenerate = (min = 1, max = 100) =>
@@ -23,15 +24,22 @@ function resetGame() {
 
 
 // Compare number to the numAnswer
-function compareNumber(userNum) {
+function checkNumber(userNum) {
+  // Correct answer given
   if (userNum == numAnswer) {
     // do win sequence
     return "";
-  } else if (userNum > numAnswer) {
-    return `lower than ${userNum}`;
   } else {
-    return `higher than ${userNum}`;
+    // Wrong answer given
+    wrongAnswers.push(userNum);
+    if (userNum > numAnswer) {
+      return `lower than ${userNum}`;
+    } else {
+      return `higher than ${userNum}`;
+    }
   }
+
+
 }
 
 function userWin() {
@@ -43,9 +51,9 @@ function userWin() {
 function parseInput(userInput) {
   let userNum = parseInt(userInput);
   let message = "";
-  
+
   if (Number(userNum)) {
-    message = compareNumber(userNum);
+    message = checkNumber(userNum);
   } else {
     // form validates for Number, so this shouldn't be possible
     message = `Invalid input, you gave me \"${userNum}\", give me an integer.`;
@@ -60,11 +68,11 @@ function userGuessed(userInput) {
 
   // Parse the input, 
   let results = parseInput(userInput);
-  console.log(results);
+  guessPrev.textContent = wrongAnswers.join(", ");
 
   guessResult.textContent = results;
 }
 
 // Only works with the arrow function and in this placement
-submitBtn.addEventListener('click', ()=> userGuessed(guessField.value));
+submitBtn.addEventListener('click', () => userGuessed(guessField.value));
 
