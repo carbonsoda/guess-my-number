@@ -1,5 +1,5 @@
 // GUESS INPUT
-const submitBtn = document.querySelector('.submitBtn');
+const submitBtn = document.querySelector('#submitBtn');
 const guessField = document.querySelector('.guessField');
 // GUESS OUTPUT
 const guessResult = document.querySelector('#guessResult');
@@ -8,7 +8,7 @@ const guessPrev = document.querySelector('#guessPrev');
 // OPTIONS
 const minRange = document.querySelector('#minField');
 const maxRange = document.querySelector('#maxField');
-const rangeBtn = document.querySelector('.rangeBtn');
+const rangeBtn = document.querySelector('#rangeBtn');
 
 /** */
 // Generator, random number in given range

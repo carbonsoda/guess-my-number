@@ -1,6 +1,6 @@
-body{
-    font-family:'Roboto', san-serif;
-    font-size:medium;
+body {
+    font-family: 'Roboto', san-serif;
+    font-size: medium;
 }
 
 #heading {
@@ -8,14 +8,23 @@ body{
     text-decoration: underline;
 }
 
-.rangePicker{
+.rangePicker {
     width: 9em;
     display: grid;
     grid-template-columns: auto auto;
     text-align: center;
-
 }
-.rangeField{
+
+.rangeField {
     width: 4em;
     margin-bottom: 1em;
+}
+
+
+.button {
+    color: white;
+    background: #440154FF;
+    font-size: .85em;
+    padding: .65em 1em;
+    border-radius: .3em;
 }
