@@ -2,15 +2,6 @@ const submitBtn = document.querySelector('.submitBtn');
 const guessField = document.querySelector('.guessField');
 const guessResult = document.querySelector('#guessResult');
 
-
-/**
- * - Generates Number + store it
- * - Accepts input
- * - Parses input
- * - Compare input with number
- * 
- */
-
 // Generator, random number in given range
 let numGenerate = (min = 1, max = 100) =>
   Math.floor(Math.random() * (max - min)) + min;
@@ -20,8 +11,12 @@ let numAnswer = numGenerate();
 // keep track of previous guesses
 let wrongAnswers = [];
 
+
+
 // Reset all variables
 function resetGame() {
+
+  guessResult.textContent = "";
   // + generate new number for numAnswer
   numAnswer = numGenerate();
 }
@@ -60,9 +55,10 @@ function parseInput(userInput) {
 
 // Handle's users input
 function userGuessed(userInput) {
-  console.log(userInput);
+  // do nothing if number not entered
   if (userInput.length < 1) return;
 
+  // Parse the input, 
   let results = parseInput(userInput);
   console.log(results);
 
