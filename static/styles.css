@@ -1,6 +1,14 @@
+
 body {
     font-family: 'Roboto', san-serif;
     font-size: medium;
+}
+
+.centerWrapper{
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 }
 
 #heading {

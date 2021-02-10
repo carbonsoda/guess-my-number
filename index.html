@@ -17,41 +17,43 @@
 </head>
 
 <body>
-    <h2 id="heading">My Number is...</h2>
+    <div class="centerWrapper">
+        <h2 id="heading">My Number is...</h2>
 
-    <!--STATUS/HOW CLOSE TO ANSWER-->
-    <!--TODO: ADJUST SPACING-->
-    <h4 id="guessResult"> </h4>
+        <!--STATUS/HOW CLOSE TO ANSWER-->
+        <!--TODO: ADJUST SPACING-->
+        <h4 id="guessResult"> </h4>
 
-    <!--NUMBER-INPUT-->
-    <!--TODO: DISALLOW DECIMALS-->
-    <label for="guessField">Can you guess it?</label> <br>
-    <input type="number" id="guessField" class="guessField">
-    <button id="submitBtn" class="button">Submit Guess</button>
-    
-    <!--PAST GUESSES-->
-    <!--TODO: ADJUST SPACING-->
-    <p id="guessPrevLabel">Previous guesses:</p>
-    <p id="guessPrev"></p>
+        <!--NUMBER-INPUT-->
+        <!--TODO: DISALLOW DECIMALS-->
+        <label for="guessField">Can you guess it?</label> <br>
+        <input type="number" id="guessField" class="guessField">
+        <button id="submitBtn" class="button">Submit Guess</button>
 
-    <!--OPTIONS-->
-    <div class="options">
-        <!--CUSTOM RANGE-->
-        <p>
-            Pick what range of numbers I can guess from <br> (default is 1-100)
-        </p>
-        <div class="rangePicker">
-            <label for="minField">Lowest</label>
-            <input type="number" id="minField" class="rangeField">
-            <label for="maxField">Highest</label>
-            <input type="number" id="maxField" class="rangeField">
+        <!--PAST GUESSES-->
+        <!--TODO: ADJUST SPACING-->
+        <p id="guessPrevLabel">Previous guesses:</p>
+        <p id="guessPrev"></p>
+
+        <!--OPTIONS-->
+        <div class="options">
+            <!--CUSTOM RANGE-->
+            <p>
+                Pick what range of numbers I can guess from <br> (default is 1-100)
+            </p>
+            <div class="rangePicker">
+                <label for="minField">Lowest</label>
+                <input type="number" id="minField" class="rangeField">
+                <label for="maxField">Highest</label>
+                <input type="number" id="maxField" class="rangeField">
+            </div>
+
+            <button id="rangeBtn" class="button">Change Range</button>
+
+
+            <!--RESET-->
+            <button id="resetBtn" class="button">Reset Game</button>
         </div>
-
-        <button id="rangeBtn" class="button">Change Range</button>
-
-
-        <!--RESET-->
-        <button id="resetBtn" class="button">Reset Game</button>
     </div>
 
 
