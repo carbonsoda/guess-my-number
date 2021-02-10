@@ -18,7 +18,8 @@ let numGenerate = (min = 1, max = 100) =>
 let numAnswer = numGenerate();
 
 // keep track of previous guesses
-let wrongAnswers = [];
+// + avoid duplicates
+let wrongAnswers = new Set();
 
 // EVENT LISTENERS
 submitBtn.addEventListener('click', userGuessed);
@@ -41,7 +42,7 @@ function userGuessed() {
 
   // Parse the input, 
   let results = checkNumber(userInput);
-  guessPrev.textContent = wrongAnswers.join(", ");
+  guessPrev.textContent = [...wrongAnswers].join(", ");
 
   guessResult.textContent = results;
 }
@@ -51,14 +52,14 @@ function checkNumber(userNum) {
   // Correct answer given
   if (userNum == numAnswer) {
     // do win sequence
-    return "";
+    return `exactly ${userNum}!`;
   } else {
     // Wrong answer given
-    wrongAnswers.push(userNum);
+    wrongAnswers.add(userNum);
     if (userNum > numAnswer) {
-      return `lower than ${userNum}`;
+      return `lower than ${userNum}.`;
     } else {
-      return `higher than ${userNum}`;
+      return `higher than ${userNum}.`;
     }
   }
 
