@@ -18,8 +18,8 @@
 
 <body>
     <div class="centerWrapper">
+
         <h2 id="heading">My number is...</h2>
-        <p id="currentRange">between 1 and 100</p>
 
         <!--STATUS/HOW CLOSE TO ANSWER-->
         <h4 id="guessResult">Can you guess it?</h4>
@@ -28,16 +28,20 @@
         <!--TODO: DISALLOW DECIMALS-->
         <input type="number" id="guessField" class="guessField">
         <button id="submitBtn" class="button">Submit Guess</button>
+        <p id="currentRange">between 1 and 100</p>
 
         <!--PAST GUESSES-->
-        <p id="guessPrevLbl">Previous guesses:</p>
-        <p id="guessPrev"></p>
+        <p id="guessPrevLbl" class="subText">
+            Previous guesses:
+        </p>
+        <p id="wrongCounts" class="subText"></p>
+        <p id="guessPrev" class="hideInitial"></p>
 
         <!--OPTIONS-->
         <div class="options">
             <!--CUSTOM RANGE-->
             <p>
-                Pick what range of numbers I can guess from <br> (default is 1-100)
+                Pick what range of numbers I can guess from
             </p>
             <div class="rangePicker">
                 <label for="minField">Lowest</label>

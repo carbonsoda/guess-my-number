@@ -5,6 +5,7 @@ const guessField = document.querySelector('.guessField');
 const guessResult = document.querySelector('#guessResult');
 const guessPrev = document.querySelector('#guessPrev');
 const currentRange = document.querySelector('#currentRange');
+const guessCounts = document.querySelector('#wrongCounts');
 
 // OPTIONS
 const minRange = document.querySelector('#minField');
@@ -35,16 +36,20 @@ function numGenerate(min = 1, max = 100) {
 function resetGame() {
   // clear fields
   guessField.value = '';
-  guessResult.textContent = '';
-  guessResult.style.visibility = 'hidden';
   guessPrev.textContent = '';
+  guessCounts.textContent = '';
+  // default text
+  guessResult.textContent = 'Can you guess it?';
   currentRange.textContent = `between 1 and 100`;
+  
+  guessResult.style.visibility = 'hidden';
   
   guessField.disabled = false;
   submitBtn.disabled = false;
 
   // reset/regenerate variables
   wrongAnswers.clear();
+  wrongCounts = 0;
   numAnswer = numGenerate();
 }
 
@@ -60,9 +65,10 @@ function userGuessed() {
 
   guessPrev.textContent = [...wrongAnswers].join(", ");
 
+  guessCounts.textContent = wrongCounts;
   guessResult.style.visibility = 'visible';
-  guessPrev.style.visibility = 'visible';
 }
+
 
 // Return string, comparing userNum to the answer
 function checkNumber(userNum) {
@@ -74,6 +80,7 @@ function checkNumber(userNum) {
   } else {
     // Wrong answer given
     wrongAnswers.add(userNum);
+    wrongCounts++;
     if (userNum > numAnswer) {
       return `lower than ${userNum}.`;
     } else {
