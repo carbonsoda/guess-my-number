@@ -65,7 +65,7 @@ function userGuessed() {
 
   guessPrev.textContent = [...wrongAnswers].join(", ");
 
-  guessCounts.textContent = wrongCounts;
+  guessCounts.textContent = `(total ${wrongCounts} ${wrongCounts>1 ? 'times' : 'time'})`;
   guessResult.style.visibility = 'visible';
 }
 
