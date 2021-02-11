@@ -23,7 +23,7 @@ body {
 }
 
 #guessResult {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     visibility: hidden;
 }
 
@@ -35,6 +35,10 @@ body {
 
 #guessPrev {
     visibility: hidden;
+    min-height: 5em;
+    max-width: 15em;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .rangePicker {
