@@ -3,7 +3,7 @@ const submitBtn = document.querySelector('#submitBtn');
 const guessField = document.querySelector('#guessField');
 // GUESS OUTPUT
 const guessResult = document.querySelector('#guessResult');
-const guessPrev = document.querySelector('#guessPrev');
+const guessPrev = document.querySelector('.guessPrev');
 const currentRange = document.querySelector('#currentRange');
 const guessCounts = document.querySelector('#wrongCounts');
 
@@ -11,7 +11,6 @@ const guessCounts = document.querySelector('#wrongCounts');
 const minRange = document.querySelector('#minField');
 const maxRange = document.querySelector('#maxField');
 const rangeBtn = document.querySelector('#rangeBtn');
-const rangeOptions = document.querySelector('.rangePicker');
 
 // EVENT LISTENERS
 submitBtn.addEventListener('click', userGuessed);
