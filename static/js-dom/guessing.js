@@ -50,14 +50,14 @@ function userGuessed() {
   // do nothing if number not entered
   if (!userInput) return;
 
-  // Parse the input, 
+  // Parse the input 
   let results = checkNumber(userInput);
-  guessPrev.textContent = [...wrongAnswers].join(", ");
-
   guessResult.textContent = results;
+
+  guessPrev.textContent = [...wrongAnswers].join(", ");
 }
 
-// Compare number to the numAnswer
+// Return string, comparing userNum to the answer
 function checkNumber(userNum) {
   // Correct answer given
   if (userNum == numAnswer) {
@@ -94,7 +94,7 @@ function parseInput(userInput) {
   console.log(`Invalid userInput: ${userInput}`);
 }
 
-
+// Actions when user guesses correctly
 function userWin() {
   // Shouldn't allow any new inputs
   guessField.disabled = true;
@@ -102,7 +102,7 @@ function userWin() {
 
 }
 
-
+// Regenerate numAnswer based on entered range of nums
 function setRange() {
   let min = parseInput(minRange.value);
   let max = parseInput(maxRange.value);
