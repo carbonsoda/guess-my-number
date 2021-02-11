@@ -36,6 +36,7 @@ function resetGame() {
   // clear fields
   guessField.value = '';
   guessResult.textContent = '';
+  guessResult.style.visibility = 'hidden';
   guessPrev.textContent = '';
   currentRange.textContent = `between 1 and 100`;
   
@@ -58,6 +59,9 @@ function userGuessed() {
   guessResult.textContent = results;
 
   guessPrev.textContent = [...wrongAnswers].join(", ");
+
+  guessResult.style.visibility = 'visible';
+  guessPrev.style.visibility = 'visible';
 }
 
 // Return string, comparing userNum to the answer

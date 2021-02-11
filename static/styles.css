@@ -18,16 +18,23 @@ body {
 #currentRange {
     color: gray;
     font-style: italic;
+    margin: -.5em 0 -.5em 0;
+    float: center;
 }
 
 #guessResult {
     margin-bottom: 2em;
+    visibility: hidden;
 }
 
 #guessPrevLbl {
     color: gray;
     text-decoration: underline;
     font-style: italic;
+}
+
+#guessPrev {
+    visibility: hidden;
 }
 
 .rangePicker {
