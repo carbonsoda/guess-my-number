@@ -20,6 +20,12 @@ body {
     margin-bottom: 2em;
 }
 
+#guessPrevLbl{
+    color: gray;
+    text-decoration: underline;
+    font-style: italic;
+}
+
 .rangePicker {
     width: 9em;
     display: grid;

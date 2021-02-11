@@ -22,6 +22,7 @@ let numAnswer = numGenerate();
 // keep track of previous guesses
 // + avoid duplicates
 let wrongAnswers = new Set();
+let wrongCounts = 0;
 
 
 // Generate random number in given range
