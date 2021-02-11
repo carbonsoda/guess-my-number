@@ -13,6 +13,7 @@ const rangeBtn = document.querySelector('#rangeBtn');
 // EVENT LISTENERS
 submitBtn.addEventListener('click', userGuessed);
 rangeBtn.addEventListener('click', setRange);
+resetBtn.addEventListener('click', resetGame);
 
 
 // Variable for the random number
@@ -23,7 +24,6 @@ let numAnswer = numGenerate();
 let wrongAnswers = new Set();
 
 
-
 // Generate random number in given range
 function numGenerate(min = 1, max = 100) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -31,10 +31,16 @@ function numGenerate(min = 1, max = 100) {
 
 // Reset all variables
 function resetGame() {
-  guessResult.textContent = '';
+  // clear fields
   guessField.value = '';
+  guessResult.textContent = '';
+  guessPrev.textContent = '';
+  
+  guessField.disabled = false;
+  submitBtn.disabled = false;
 
-  // + generate new number for numAnswer
+  // reset/regenerate variables
+  wrongAnswers.clear();
   numAnswer = numGenerate();
 }
 
@@ -56,6 +62,7 @@ function checkNumber(userNum) {
   // Correct answer given
   if (userNum == numAnswer) {
     // do win sequence
+    userWin();
     return `exactly ${userNum}!`;
   } else {
     // Wrong answer given
