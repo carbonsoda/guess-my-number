@@ -19,16 +19,21 @@
 <body>
     <div class="centerWrapper">
 
-        <h2 id="heading">My number is...</h2>
+        <div class="top">
+            <h2 id="heading">My number is...</h2>
 
-        <!--STATUS/HOW CLOSE TO ANSWER-->
-        <h4 id="guessResult">Can you guess it?</h4>
+            <!--STATUS/HOW CLOSE TO ANSWER-->
+            <h4 id="guessResult">Can you guess it?</h4>
+        </div>
 
-        <!--NUMBER-INPUT-->
-        <!--TODO: DISALLOW DECIMALS-->
-        <input type="number" id="guessField" class="guessField">
-        <button id="submitBtn" class="button">Submit Guess</button>
-        <p id="currentRange">between 1 and 100</p>
+        <div class="guessInput">
+            <!--NUMBER-INPUT-->
+            <!--TODO: DISALLOW DECIMALS-->
+            <input type="number" id="guessField" class="guessField">
+            <button id="submitBtn" class="button">Submit Guess</button>
+            <p id="currentRange">between 1 and 100</p>
+        </div>
+
 
         <!--PAST GUESSES-->
         <p id="guessPrevLbl" class="subText">
@@ -39,22 +44,18 @@
 
         <!--OPTIONS-->
         <div class="options">
+            <!--RESET-->
+            <button id="resetBtn" class="button">Reset Game</button>
+
             <!--CUSTOM RANGE-->
-            <p>
-                Pick what range of numbers I can guess from
-            </p>
+            <button id="rangeBtn" class="button">Change Range</button>
+            
             <div class="rangePicker">
                 <label for="minField">Lowest</label>
                 <input type="number" id="minField" class="rangeField">
                 <label for="maxField">Highest</label>
                 <input type="number" id="maxField" class="rangeField">
             </div>
-
-            <button id="rangeBtn" class="button">Change Range</button>
-
-
-            <!--RESET-->
-            <button id="resetBtn" class="button">Reset Game</button>
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 // GUESS INPUT
 const submitBtn = document.querySelector('#submitBtn');
-const guessField = document.querySelector('.guessField');
+const guessField = document.querySelector('#guessField');
 // GUESS OUTPUT
 const guessResult = document.querySelector('#guessResult');
 const guessPrev = document.querySelector('#guessPrev');
@@ -11,6 +11,7 @@ const guessCounts = document.querySelector('#wrongCounts');
 const minRange = document.querySelector('#minField');
 const maxRange = document.querySelector('#maxField');
 const rangeBtn = document.querySelector('#rangeBtn');
+const rangeOptions = document.querySelector('.rangePicker');
 
 // EVENT LISTENERS
 submitBtn.addEventListener('click', userGuessed);
@@ -118,14 +119,15 @@ function userWin() {
 
 // Regenerate numAnswer based on entered range of nums
 function setRange() {
-  let {min, max} = checkRange(parseInput(minRange.value), parseInput(maxRange.value));
+  let { min, max } = checkRange(parseInput(minRange.value), parseInput(maxRange.value));
+  
   // For now, assume user must input both
   resetGame();
   numAnswer = numGenerate(min, max);
   currentRange.textContent = `between ${min} and ${max}`;
 }
 
-function checkRange(userMin, userMax) {
+function checkRange(userMin=1, userMax=100) {
   let min = Math.min(userMin, userMax);
   let max = Math.max(userMin, userMax);
   return {min, max};

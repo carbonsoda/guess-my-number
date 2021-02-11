@@ -12,12 +12,15 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.top {
+    text-align: center;
+    margin-bottom: 2em;
+}
 
 .subText {
     color: gray;
     font-style: italic;
 }
-
 
 #heading {
     font-family: 'Zilla Slab', serif;
@@ -28,7 +31,6 @@ body {
     color: gray;
     font-style: italic;
     margin: 0 0 0 0;
-    float: center;
 }
 
 #guessResult {
@@ -48,10 +50,11 @@ body {
 }
 
 .rangePicker {
+    margin-top:2em;
     width: 9em;
     display: grid;
     grid-template-columns: auto auto;
-    text-align: center;
+    text-align: left;
 }
 
 .rangeField {
