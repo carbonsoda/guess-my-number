@@ -1,13 +1,12 @@
-
 body {
     font-family: 'Roboto', san-serif;
     font-size: medium;
 }
 
-.centerWrapper{
+.centerWrapper {
     position: fixed;
     top: 50%;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -16,11 +15,16 @@ body {
     text-decoration: underline;
 }
 
-#guessResult{
+#currentRange {
+    color: gray;
+    font-style: italic;
+}
+
+#guessResult {
     margin-bottom: 2em;
 }
 
-#guessPrevLbl{
+#guessPrevLbl {
     color: gray;
     text-decoration: underline;
     font-style: italic;
@@ -37,7 +41,6 @@ body {
     width: 4em;
     margin-bottom: 1em;
 }
-
 
 .button {
     color: white;

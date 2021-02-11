@@ -4,6 +4,7 @@ const guessField = document.querySelector('.guessField');
 // GUESS OUTPUT
 const guessResult = document.querySelector('#guessResult');
 const guessPrev = document.querySelector('#guessPrev');
+const currentRange = document.querySelector('#currentRange');
 
 // OPTIONS
 const minRange = document.querySelector('#minField');
@@ -36,6 +37,7 @@ function resetGame() {
   guessField.value = '';
   guessResult.textContent = '';
   guessPrev.textContent = '';
+  currentRange.textContent = `between 1 and 100`;
   
   guessField.disabled = false;
   submitBtn.disabled = false;
@@ -105,10 +107,16 @@ function userWin() {
 
 // Regenerate numAnswer based on entered range of nums
 function setRange() {
-  let min = parseInput(minRange.value);
-  let max = parseInput(maxRange.value);
+  let {min, max} = checkRange(parseInput(minRange.value), parseInput(maxRange.value));
   // For now, assume user must input both
   resetGame();
   numAnswer = numGenerate(min, max);
+  currentRange.textContent = `between ${min} and ${max}`;
+}
+
+function checkRange(userMin, userMax) {
+  let min = Math.min(userMin, userMax);
+  let max = Math.max(userMin, userMax);
+  return {min, max};
 }
 
