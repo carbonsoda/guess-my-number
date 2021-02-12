@@ -41,9 +41,9 @@ function resetGame() {
   // default text
   guessResult.textContent = 'Can you guess it?';
   currentRange.textContent = `between 1 and 100`;
-  
+
   guessResult.style.visibility = 'hidden';
-  
+
   guessField.disabled = false;
   submitBtn.disabled = false;
 
@@ -65,7 +65,7 @@ function userGuessed() {
 
   guessPrev.textContent = [...wrongAnswers].join(", ");
 
-  guessCounts.textContent = `(total ${wrongCounts} ${wrongCounts>1 ? 'times' : 'time'})`;
+  guessCounts.textContent = `(total ${wrongCounts} ${wrongCounts > 1 ? 'times' : 'time'})`;
   guessResult.style.visibility = 'visible';
 }
 
@@ -116,19 +116,27 @@ function userWin() {
 
 }
 
-// Regenerate numAnswer based on entered range of nums
+// Regenerate numAnswer based on entered number range
 function setRange() {
   let { min, max } = checkRange(parseInput(minRange.value), parseInput(maxRange.value));
-  
-  // For now, assume user must input both
-  resetGame();
-  numAnswer = numGenerate(min, max);
-  currentRange.textContent = `between ${min} and ${max}`;
+
+  // Only set a new range if at least 1 new value passed in
+  if (min && max) {
+    resetGame();
+    numAnswer = numGenerate(min, max);
+    currentRange.textContent = `between ${min} and ${max}`;
+  }
+
 }
 
-function checkRange(userMin=1, userMax=100) {
+function checkRange(userMin = 1, userMax = 100) {
   let min = Math.min(userMin, userMax);
   let max = Math.max(userMin, userMax);
-  return {min, max};
+
+  if (userMin == 1 && userMax == 100) {
+    // arbitrarily make one false
+    min = false;
+  }
+  return { min, max };
 }
 
